@@ -1,0 +1,125 @@
+/** @format */
+.container-farm {
+      position: relative;
+      height: 575px;
+      top: 170px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .left {
+            border-radius: 16px;
+            box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+            height: 90%;
+            width: 20%;
+            margin-right: 20px;
+            .title-location {
+                  font-size: 36px;
+                  font-weight: 500;
+                  display: flex;
+                  justify-content: center;
+            }
+            .location {
+                  font-size: 24px;
+                  font-weight: 600;
+                  color: #059669;
+                  border-top: 2px solid #cfcfcf;
+                  border-bottom: 2px solid #cfcfcf;
+                  padding: 24px 0;
+                  display: flex;
+                  justify-content: center;
+            }
+            .add-location {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-color: #059669;
+                  border-radius: 4px;
+                  outline: none;
+                  border: none;
+                  height: 50px;
+                  width: 160px;
+                  color: white;
+                  font-size: 24px;
+                  margin: 24px auto;
+            }
+      }
+      .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 90%;
+            width: 50%;
+            .sensors {
+                  width: 100%;
+                  height: 60%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around;
+                  border: 2px solid #cfcfcf;
+                  border-radius: 8px;
+                  .add-sensor {
+                        color: white;
+                        height: 10%;
+                        background-color: #059669;
+                        width: 200px;
+                        margin-left: 24px;
+                        border-radius: 4px;
+                        border: none;
+                  }
+                  .table-sensor {
+                        overflow-y: scroll;
+                        height: 80%;
+                  }
+                  .table-sensor::-webkit-scrollbar {
+                        width: 8px;
+                        border-radius: 2px;
+                  }
+                  /* Track */
+                  .table-sensor::-webkit-scrollbar-track {
+                        background: #f1f1f1;
+                        box-shadow: inset 0 0 5px grey;
+                        border-radius: 10px;
+                  }
+
+                  /* Handle */
+                  .table-sensor::-webkit-scrollbar-thumb {
+                        background: #039a6a;
+                        border-radius: 10px;
+                  }
+
+                  /* Handle on hover */
+                  .table-sensor::-webkit-scrollbar-thumb:hover {
+                        background: #059669;
+                  }
+                  .ant-switch-checked {
+                        background-color: #04aa6d;
+                  }
+            }
+            .devices {
+                  width: 100%;
+                  height: 38%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around;
+                  border: 2px solid #cfcfcf;
+                  border-radius: 8px;
+
+                  .add-device {
+                        color: white;
+                        height: 18%;
+                        width: 200px;
+                        margin-left: 24px;
+                        background-color: #059669;
+                        border-radius: 4px;
+                        border: none;
+                  }
+                  .table-device {
+                        height: 60%;
+                  }
+                  .ant-switch-checked {
+                        background-color: #04aa6d;
+                  }
+            }
+      }
+}

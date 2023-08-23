@@ -1,0 +1,76 @@
+/** @format */
+
+// /** @format */
+
+.contact-us {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      background-color: white;
+      position: relative;
+      top: 168px;
+      .right {
+            .map-contact {
+                  width: 72%;
+            }
+      }
+      .left {
+            display: flex;
+            flex-direction: column;
+            margin-right: 40px;
+            h2 {
+                  font-size: 4rem;
+                  font-weight: 700;
+            }
+            .title-contact {
+                  height: 60px;
+                  outline: 1px solid #000000;
+                  border-radius: 5px;
+                  width: 500px;
+                  padding: 12px;
+                  line-height: 1.6rem;
+                  font-size: 1.6rem;
+                  border: none;
+                  margin-bottom: 24px;
+            }
+            .title-contact::placeholder {
+                  font-size: 1.6rem;
+                  opacity: 0.6;
+            }
+            .your-phone-number {
+                  height: 60px;
+                  outline: 1px solid #000000;
+                  border-radius: 5px;
+                  width: 500px;
+                  padding: 12px;
+                  line-height: 1.6rem;
+                  font-size: 1.6rem;
+                  border: none;
+                  margin-bottom: 24px;
+            }
+            .your-phone-number::placeholder {
+                  font-size: 1.6rem;
+                  opacity: 0.6;
+            }
+            .content-res {
+                  height: 200px;
+                  width: 500px;
+                  padding: 12px;
+                  line-height: 1.6rem;
+                  font-size: 1.6rem;
+                  border: none;
+                  outline: 1px solid #000000;
+                  border-radius: 5px;
+                  margin-bottom: 24px;
+            }
+            .submit-contact {
+                  height: 60px;
+                  background-color: #0982fe;
+                  outline: none;
+                  border-radius: 5px;
+                  border: none;
+                  font-size: 2rem;
+                  color: white;
+            }
+      }
+}

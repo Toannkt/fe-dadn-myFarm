@@ -1,0 +1,170 @@
+/** @format */
+
+.home-header-container {
+      height: 128px;
+      width: 100%;
+      padding: 0 28px;
+      position: fixed;
+      z-index: 100;
+      .home-header-content {
+            border-bottom: 1px solid #c3c3c3;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin-top: 40px;
+            justify-content: space-evenly;
+            .left-content {
+                  width: 20%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-evenly;
+                  .header-logo {
+                        background: url("../../assets/vietfarm_logo.png") no-repeat;
+                        height: 120px;
+                        width: 240px;
+                        cursor: pointer;
+                  }
+                  i {
+                        font-size: 24px;
+                        color: grey;
+                        cursor: pointer;
+                  }
+            }
+            .header-left-detail-doctor {
+                  width: 10%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-evenly;
+                  .fa-arrow-left {
+                        padding: 8px;
+                        font-size: 1.4rem;
+                        color: #606060;
+                        &:hover {
+                              color: #333;
+                        }
+                  }
+            }
+            .center-content {
+                  width: 60%;
+                  font-size: 42px;
+                  font-weight: 500;
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                  .home {
+                        cursor: pointer;
+                  }
+                  .my-farm {
+                        cursor: pointer;
+                  }
+                  .about {
+                        cursor: pointer;
+                  }
+                  .contact {
+                        cursor: pointer;
+                  }
+            }
+            .right-content {
+                  width: 20%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-evenly;
+
+                  .btn {
+                        height: 50px;
+                        .btn-login {
+                              width: 100px;
+                              height: 51px;
+                              background-color: rgb(5, 150, 105);
+                              font-size: 15px;
+                              display: flex;
+                              border-radius: 40px;
+                              align-items: center;
+                              justify-content: center;
+                              :hover {
+                                    cursor: pointer;
+                                    opacity: 0.9;
+                              }
+                              .login {
+                                    color: white;
+                              }
+                        }
+                        .btn-logout {
+                              width: 100%;
+                              height: 48px;
+                              background-color: #cbf3e7;
+                              font-size: 15px;
+                              display: flex;
+                              border-radius: 8px;
+                              align-items: center;
+                              justify-content: center;
+                              :hover {
+                                    cursor: pointer;
+                                    opacity: 0.9;
+                              }
+                        }
+                        .btn-logout:hover {
+                              background-color: #04aa6d;
+                              color: white;
+                        }
+                        .user-setting {
+                              // display: flex;
+                              align-items: center;
+                              h2 {
+                                    margin: 0;
+                              }
+                              .option-setting {
+                                    background-color: #cbf3e7;
+                                    border-radius: 12px;
+                                    position: relative;
+                                    left: 38px;
+                                    top: 4px;
+                                    padding: 8px;
+                                    display: none;
+                                    .setting-profile:hover {
+                                          color: white;
+                                    }
+                                    .option-profile {
+                                          display: flex;
+                                          width: 100%;
+                                          height: 48px;
+                                          margin-bottom: 4px;
+                                          background-color: #cbf3e7;
+                                          display: flex;
+                                          border-radius: 8px;
+                                          align-items: center;
+                                          justify-content: center;
+                                          cursor: pointer;
+                                    }
+                                    .option-profile:hover {
+                                          background-color: #04aa6d;
+                                          color: white;
+                                    }
+                                    .setting-password:hover {
+                                          color: white;
+                                    }
+                                    .option-password {
+                                          display: flex;
+                                          width: 100%;
+                                          height: 48px;
+                                          margin-bottom: 4px;
+                                          background-color: #cbf3e7;
+                                          display: flex;
+                                          border-radius: 8px;
+                                          align-items: center;
+                                          justify-content: center;
+                                          cursor: pointer;
+                                    }
+                                    .option-password:hover {
+                                          background-color: #04aa6d;
+                                          color: white;
+                                    }
+                              }
+                        }
+                        .user-setting:hover .option-setting {
+                              display: block;
+                        }
+                  }
+            }
+      }
+}
