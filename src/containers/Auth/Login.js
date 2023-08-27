@@ -10,8 +10,7 @@ import Footer from "../../components/Footer/Footer";
 import * as actions from "../../store/actions";
 import "./Login.scss";
 import { Fragment } from "react";
-// import { userLoginSuccess } from '../../store/actions';
-
+import ForgotPassword from "../../assets/reset-password-1.png";
 class Login extends Component {
       constructor(props) {
             super(props);
@@ -139,7 +138,16 @@ class Login extends Component {
                                                       Login
                                                 </button>
                                           </div>
-                                          <div className='col-12'>
+                                          <div className='col-12' style={{ display: "flex", alignItems: "center" }}>
+                                                <img
+                                                      src={ForgotPassword}
+                                                      alt='Icon forgot password'
+                                                      style={{
+                                                            width: "24px",
+
+                                                            marginRight: "8px",
+                                                      }}
+                                                ></img>
                                                 <span
                                                       className='forgot-password'
                                                       onClick={() => this.processForgotPassword()}

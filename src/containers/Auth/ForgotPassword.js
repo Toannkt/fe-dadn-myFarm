@@ -3,37 +3,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import { handleLoginApi } from "../../services/userService";
 import HomeHeader from "../../components/HomeHeader/HomeHeader";
 import rightLogin from "../../assets/right-login.png";
 import Footer from "../../components/Footer/Footer";
 import * as actions from "../../store/actions";
 import "./ForgotPassword.scss";
 import { Fragment } from "react";
-// import { userLoginSuccess } from '../../store/actions';
-
+import { forgotPasswordService } from "../../services/userService";
+import ReturnLogin from "../../assets/return-login.png";
 class ForgotPassword extends Component {
       constructor(props) {
             super(props);
             this.state = {
-                  username: "",
+                  email: "",
                   isShowPassword: false,
                   errMessage: "",
             };
             this.btnLogin = React.createRef();
       }
-      handleOnChangeUserName = (event) => {
+      handleOnChangeEmail = (event) => {
             this.setState({
-                  username: event.target.value,
+                  email: event.target.value,
             });
       };
-      handleLogin = async (username, password) => {
+      handleForgotPassword = async (email) => {
             this.setState({
                   errMessage: "",
             });
-            console.log("username:", username, password);
             try {
-                  let data = await handleLoginApi(username, password);
+                  let data = await forgotPasswordService(email);
                   console.log(data);
                   if (data && data.errCode !== 0) {
                         this.setState({
@@ -41,9 +39,8 @@ class ForgotPassword extends Component {
                         });
                   }
                   if (data && data.errCode === 0) {
-                        this.props.userLoginSuccess(data);
-
-                        console.log("Login success");
+                        alert("Lấy lại mật khẩu thành công, vui lòng kiểm tra email của bạn!");
+                        this.processReturnLogin();
                   }
             } catch (e) {
                   if (e.response) {
@@ -51,14 +48,12 @@ class ForgotPassword extends Component {
                               errMessage: e.response.data.message,
                         });
                   }
-                  console.log("KhacToan", e.response);
             }
       };
-      handleKeydown = (event) => {
-            console.log(123);
-            if (event.key === "Enter" || event.keyCode === 13) {
-                  this.handleLogin();
-            }
+      processReturnLogin = () => {
+            const { navigate } = this.props;
+            const redirectPath = "/login";
+            navigate(`${redirectPath}`);
       };
       render() {
             return (
@@ -74,24 +69,31 @@ class ForgotPassword extends Component {
                                                       type='text'
                                                       className='form-control'
                                                       placeholder='Nhập vào email của bạn'
-                                                      value={this.state.username}
-                                                      onChange={(event) => this.handleOnChangeUserName(event)}
+                                                      value={this.state.email}
+                                                      onChange={(event) => this.handleOnChangeEmail(event)}
                                                 ></input>
+                                                <div className='col-12' style={{ color: "red" }}>
+                                                      {this.state.errMessage}
+                                                </div>
                                           </div>
                                           <div className='col-12'>
                                                 <button
                                                       className='btn-forgot-password'
-                                                      onClick={() =>
-                                                            this.handleLogin(this.state.username, this.state.password)
-                                                      }
+                                                      onClick={() => this.handleForgotPassword(this.state.email)}
                                                 >
                                                       Gửi mật khẩu mới tới email của bạn
                                                 </button>
                                           </div>
-                                          <div className='col-12'>
+                                          <div className='col-12 wrap-return-login'>
+                                                <img
+                                                      src={ReturnLogin}
+                                                      alt='return login icon'
+                                                      className='icon-return-login'
+                                                ></img>
                                                 <span
                                                       className='return-login
                                                 '
+                                                      onClick={() => this.processReturnLogin()}
                                                 >
                                                       Trở lại đăng nhập
                                                 </span>
@@ -117,9 +119,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
       return {
             navigate: (path) => dispatch(push(path)),
-            addUserSuccess: (userInfo) => dispatch(actions.addUserSuccess(userInfo)),
-            userLoginFail: () => dispatch(actions.userLoginFail()),
-            userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
       };
 };
 

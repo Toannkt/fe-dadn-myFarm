@@ -22,6 +22,10 @@ const editUserService = (data) => {
 const changePasswordService = (data) => {
       return axios.put("/api/change-password", data);
 };
+
+const forgotPasswordService = (email) => {
+      return axios.post("/api/forgot-password", { email: email });
+};
 const deleteUserService = (userId) => {
       return axios.delete("/api/delete-user", {
             data: {
@@ -72,6 +76,7 @@ export {
       createNewUserService,
       editUserService,
       changePasswordService,
+      forgotPasswordService,
       deleteUserService,
       changeStatusUser,
       getLocationById,

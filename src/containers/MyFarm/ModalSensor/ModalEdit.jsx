@@ -31,8 +31,8 @@ const ModalEdit = ({ isModalEditOpen, handleCancelEdit, selectedData, handleRend
                         style={{ fontSize: "32px", margin: "auto", width: "250px", textAlign: "center" }}
                   >
                         <tr>
-                              <td>Tối đa</td>
                               <td>Tối thiểu</td>
+                              <td>Tối đa</td>
                         </tr>
                         <tr>
                               <td>

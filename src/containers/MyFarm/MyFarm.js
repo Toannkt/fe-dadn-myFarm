@@ -34,6 +34,8 @@ class MyFarm extends Component {
                   isModalStatisticalOpen: false,
                   minLimited: "",
                   maxLimited: "",
+                  minValue: "",
+                  maxValue: "",
                   nameEquipt: "",
                   idEquipt: "",
                   typeEquipt: "",
@@ -90,7 +92,7 @@ class MyFarm extends Component {
             });
             this.getId.current = null;
       };
-      handleStatistical = async (idEquipt, type, name) => {
+      handleStatistical = async (idEquipt, type, name, minLimited, maxLimited) => {
             let data = await getAllHistoryById(idEquipt, type);
             console.log("Statistical: ", data.data.length);
             if (data.data.length >= 10) {
@@ -105,6 +107,8 @@ class MyFarm extends Component {
                         nameEquipt: name,
                         idEquipt: idEquipt,
                         typeEquipt: type,
+                        minValue: minLimited,
+                        maxValue: maxLimited,
                   });
             } else {
                   this.setState({
@@ -113,6 +117,8 @@ class MyFarm extends Component {
                         nameEquipt: name,
                         idEquipt: idEquipt,
                         typeEquipt: type,
+                        minValue: minLimited,
+                        maxValue: maxLimited,
                   });
             }
       };
@@ -194,6 +200,7 @@ class MyFarm extends Component {
       };
 
       notify = () => toast.warn("Cảnh báo vượt quá sự cho phép");
+
       render() {
             const {
                   isModalEditOpen,
@@ -206,8 +213,10 @@ class MyFarm extends Component {
                   nameEquipt,
                   idEquipt,
                   typeEquipt,
+                  minValue,
+                  maxValue,
             } = this.state;
-            console.log("arrDevice: ", arrDevice);
+            console.log("selectedData: ", selectedData);
             return (
                   <Fragment>
                         <div className='background-image'>
@@ -234,8 +243,8 @@ class MyFarm extends Component {
                                                                         <th>Tên cảm biến</th>
                                                                         <th>Ngày thêm</th>
                                                                         <th>Trạng thái</th>
-                                                                        <th>Tối đa</th>
                                                                         <th>Tối thiểu</th>
+                                                                        <th>Tối đa</th>
                                                                         <th>Thống kê</th>
                                                                         <th>Chỉnh sửa</th>
                                                                         <th>Xóa</th>
@@ -288,6 +297,8 @@ class MyFarm extends Component {
                                                                                                                   sensor.id,
                                                                                                                   sensor.type,
                                                                                                                   sensor.name,
+                                                                                                                  sensor.minLimited,
+                                                                                                                  sensor.maxLimited,
                                                                                                             )
                                                                                                       }
                                                                                                 ></img>
@@ -537,6 +548,8 @@ class MyFarm extends Component {
                                           nameEquipt={nameEquipt}
                                           idEquipt={idEquipt}
                                           typeEquipt={typeEquipt}
+                                          minValue={minValue}
+                                          maxValue={maxValue}
                                     />
                               )}
                               <Footer />
